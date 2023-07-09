@@ -7,22 +7,21 @@ namespace Module15
     {
         static void Main(string[] args)
         {
-            var softwareManufacturers = new List<string>()
-            {
-                "Microsoft", "Apple", "Oracle"
-            };
+            Console.WriteLine("Введите текст");
+            var text = Console.ReadLine();
 
-            var hardwareManufacturers = new List<string>()
-            {
-                "Apple", "Samsung", "Intel"
-            };
+            var punctuation = new List<char>() { ' ', ',', '.', ';', ':', '!', '?' };
 
-            var itCompanies = softwareManufacturers.Union(hardwareManufacturers);
-
-            foreach (var itCom in itCompanies)
+            if (string.IsNullOrEmpty(text))
             {
-                Console.WriteLine(itCom);
+                Console.WriteLine("Вы ввели пустой текст");
+                return;
             }
+            Console.WriteLine();
+            Console.WriteLine("Текст без знаков препинания: ");
+
+            var noPunctuation = text.Except(punctuation).ToArray();
+            Console.WriteLine(noPunctuation);
         } 
     }
 }
